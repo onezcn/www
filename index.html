@@ -6,11 +6,19 @@ if(location.href.indexOf('?')!=-1){
   window.appHash=location.href.split("#")[0].split("?")[1];
 }
 var o=window.appHash.split('.');
-if(o.length!=4){
+if(o.length<4){
   o=[window.appHash,'A','B','C'];
 }
+window.resUrl='https://q.onez.cn';
 window.appHash=o[0];
-var baseurl='https://q.onez.cn/'+window.appHash;
+if(o.length>4){
+  var t=[];
+  for(var i=4;i<o.length;i++){
+    t.push(o[i]);
+  }
+  window.resUrl='https://'+t.join('/);
+}
+var baseurl=window.resUrl+'/'+window.appHash;
 document.write('<link rel="stylesheet" href="'+baseurl+'/static/index.'+o[1]+'.css">');
 </script></head><body><div id="app"></div>
 <script>document.write('<scr'+'ipt src="'+baseurl+'/static/js/chunk-vendors.'+o[2]+'.js"></scr'+'ipt>');document.write('<scr'+'ipt src="'+baseurl+'/static/js/index.'+o[3]+'.js"></scr'+'ipt>');</script></body></html>
