@@ -22,7 +22,9 @@ if(o.length>4){
     }
     t.push(o[i]);
   }
-  window.resUrl='//'+t.join('.');
+  if(t.length>=2){
+    window.resUrl='//'+t.join('.');
+  }
 }
 var baseurl=window.resUrl+'/'+window.appHash;
 document.write('<link rel="stylesheet" href="'+baseurl+'/static/index.'+o[1]+'.css">');
